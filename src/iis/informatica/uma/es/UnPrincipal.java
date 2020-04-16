@@ -1,6 +1,7 @@
 package iis.informatica.uma.es;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -22,6 +23,10 @@ import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 
 public class UnPrincipal {
+
+	final static String PRIMERPANEL = "Primer panel";
+    final static String SEGUNDOPANEL = "Segundo panel";
+
 	private static void createAndShowGUI() {
 		// Create and set up the window.
 		JFrame frame = new JFrame("HelloWorldSwing");
@@ -108,6 +113,8 @@ public class UnPrincipal {
 		tabbedPane.addTab("Border Layout Pane", null, createBorderLayoutPanel(), "Does twice as much nothing");
 
 		tabbedPane.addTab("Box Layout Pane", null, createBoxLayoutPanel(), "Does three times as much nothing");
+
+		tabbedPane.addTab("Card Layout Pane", null, createCardLayoutPanel(), "Does four times as much nothing");
 
 		return tabbedPane;
 	}
@@ -232,5 +239,15 @@ public class UnPrincipal {
 		boxPanel.add(lb_2_3);
 
 		return boxPanel;
+	}
+	
+	protected static JPanel createCardLayoutPanel() {
+		JPanel cards = new JPanel();
+        //Create the panel that contains the "cards".
+        cards = new JPanel(new CardLayout());
+        cards.add(new PrimerPanel(), PRIMERPANEL);
+        cards.add(new SegundoPanel(), SEGUNDOPANEL);
+
+        return cards;
 	}
 }
