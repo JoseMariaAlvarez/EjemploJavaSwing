@@ -28,6 +28,8 @@ public class PanelOpciones extends JPanel {
 	  	add(reset);
 	  	add(nuevoVisor);
 		add(escogerArchivo);
+		this.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+
 	}
 	
 	public void controlador(ActionListener contrl) {

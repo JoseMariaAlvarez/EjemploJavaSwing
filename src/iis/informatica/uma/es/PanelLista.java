@@ -1,5 +1,8 @@
 package iis.informatica.uma.es;
 
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
@@ -17,6 +20,8 @@ public class PanelLista extends JPanel implements ListSelectionListener{
 		add(listOpciones);
 		
 		listOpciones.addListSelectionListener(this);
+		this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
 	}
 	
 	public void valueChanged(ListSelectionEvent e) {

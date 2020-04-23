@@ -1,10 +1,12 @@
 package iis.informatica.uma.es;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,6 +28,10 @@ public class PanelCombo extends JPanel {
 		textF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("evento del text field");
+					if (!presente(textF.getText())) {
+					comboOpciones.addItem((String) textF.getText());
+				}
+
 			}});
 		
 		opcionesParaComboBox = new Vector<>();
@@ -44,7 +50,8 @@ public class PanelCombo extends JPanel {
 				if (e.getActionCommand().equals("comboBoxChanged")) {
 					System.out.println("cambiada selección en combo box");					
 				} else if (e.getActionCommand().equals("comboBoxEdited")) {
- 					if (!repetida((String) comboOpciones.getSelectedItem())) {
+					System.out.println("modificada selección en combo box");					
+ 					if (!presente((String) comboOpciones.getSelectedItem())) {
 						comboOpciones.addItem((String) comboOpciones.getSelectedItem());
 					}
 				}
@@ -55,15 +62,19 @@ public class PanelCombo extends JPanel {
 		add (tfLabel);
 		add (textF);
 		add(comboOpciones);
+		this.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+
 
 	}
 
-	private boolean repetida(String s) {
+	private boolean presente(String s) {
+		boolean pres = false;
 		int i = 0;
-		while ((i < comboOpciones.getItemCount()) &&  !(comboOpciones.getItemAt(i).equals(s))){
+		while (!pres && (i < comboOpciones.getItemCount())){
+			pres = comboOpciones.getItemAt(i).equals(s);
 				i++;
 		}
-		return comboOpciones.getItemCount() < i;
+		return pres;
 	}
 
 	

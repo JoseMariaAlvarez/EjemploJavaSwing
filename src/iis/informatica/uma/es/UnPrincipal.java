@@ -213,7 +213,8 @@ public class UnPrincipal {
 		JLabel lb_2_3 = new JLabel(" (2,3) ");
 		grdPanel.setLayout(new GridLayout(2, 3));
 		grdPanel.add(lb_1_1);
-		grdPanel.add(lb_1_2);
+//		grdPanel.add(lb_1_2);
+		grdPanel.add(new JLabel());
 		grdPanel.add(lb_1_3);
 		grdPanel.add(lb_2_1);
 		grdPanel.add(lb_2_2);

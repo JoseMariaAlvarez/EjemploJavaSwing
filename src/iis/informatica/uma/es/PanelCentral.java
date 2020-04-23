@@ -1,7 +1,9 @@
 package iis.informatica.uma.es;
 
+import java.awt.Color;
 import java.awt.Component;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
@@ -45,6 +47,7 @@ public class PanelCentral extends JPanel {
 		JPanel panelCheckBoxes = new JPanel();
 		panelCheckBoxes.add(opt1);
 		panelCheckBoxes.add(opt2);
+		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
 		add(panelCheckBoxes);
 		

@@ -1,5 +1,8 @@
 package iis.informatica.uma.es;
 
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -56,6 +59,8 @@ public class PanelTextArea extends JPanel {
 //		texto.setWrapStyleWord(true);
 		JScrollPane scrollP = new JScrollPane(texto);
 		add(scrollP);
+		this.setBorder(BorderFactory.createLineBorder(Color.RED));
+
 	}
 	
 }
